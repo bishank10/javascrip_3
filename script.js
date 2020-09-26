@@ -22,7 +22,8 @@ function generatePassword() {
   } else if (specChar === false && lowCase === true   && uppChar === true ) {
     fourthCase(); 
   } else {
-    userPreference()
+    alert("invalid entry");
+    generatePassword();
   }
   }
   
