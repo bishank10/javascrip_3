@@ -7,9 +7,8 @@ var specChar;
 var character;
 var password;
 
-
 // function here generates random password and logs it 
-function userPreference() {
+function generatePassword() {
    length = parseInt(prompt("Choose a number from 8 to 28 for your password?"));
    uppCase = confirm("Would you like uppercase?");
    lowCase = confirm("Would you like lowercase?");
@@ -22,20 +21,19 @@ function userPreference() {
     thirdCase();
   } else if (specChar === false && lowCase === true   && uppChar === true ) {
     fourthCase(); 
-  } 
-  else {
-    alert("Try Again");
+  } else {
+    userPreference()
   }
   }
   
 
 // the function listed here are called upon satisfied condition up above
 
-  function firstCase() {
+  function firstCase() {  // this satifies cas
+    password ="";
     var character = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
-    for ( i=0; i < length; i++) {
-      // password ="";
-    var password = password + character.charAt(Math.floor(Math.random() * character.length + 1));
+    for ( i=0; i <= length; i++) {
+     password +=  character.charAt(Math.floor(Math.random() * (character.length) +1));
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
     }
@@ -44,9 +42,9 @@ function userPreference() {
 
 
 function secondCase() {
+  password = "";
   var character = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>1234567890";
-  for (i=0; i<length; i++) {
-    password = "";
+  for (i=0; i <= length; i++) {
   var password = password + character.charAt(Math.floor(Math.random() * character.length +1));
   var passwordText = document.querySelector("#password");
     passwordText.value = password;
@@ -54,9 +52,9 @@ function secondCase() {
 }
 
 function thirdCase() {
+  password = "";
   var character = "!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
-  for (i=0; i<length; i++) {
-    password = "";
+  for (i=0; i<=length; i++) {
     var password = password + character.charAt(Math.floor(Math.random() * character.length +1));
     var passwordText = document.querySelector("#password");
       passwordText.value = password;
@@ -64,6 +62,7 @@ function thirdCase() {
 }
 
 function fourthCase() {
+  password = "";
   var character = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
   for (i=0; i<length; i++) {
   var password = password + character.charAt(Math.floor(Math.random() * character.length +1));
@@ -74,4 +73,4 @@ function fourthCase() {
 
   
 
-document.getElementById("generate").addEventListener("click", userPreference);
+document.getElementById("generate").addEventListener("click", generatePassword);
